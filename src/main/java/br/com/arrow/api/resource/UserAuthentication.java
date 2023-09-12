@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 public class UserAuthentication {
@@ -18,8 +20,9 @@ public class UserAuthentication {
     private UserService service;
 
     @PostMapping("/signIn")
-    public void signIn(@RequestBody UserAccountCredential credential){
-
+    public ResponseEntity<String> signIn(@RequestBody UserAccountCredential credential){
+        ResponseEntity<String> user = service.signIn(credential);
+        return user;
     }
 
     @PostMapping("/signUp")

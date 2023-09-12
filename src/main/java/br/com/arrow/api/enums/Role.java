@@ -2,5 +2,10 @@ package br.com.arrow.api.enums;
 
 public enum Role {
     ADMIN,
-    CLIENT
+    CLIENT;
+
+    public String getAuthority(){
+        return name();
+    }
+
 }

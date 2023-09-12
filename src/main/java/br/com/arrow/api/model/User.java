@@ -40,6 +40,12 @@ public class User {
         this.role = Role.CLIENT;
     }
 
+    public User(String email,String password,String role){
+        this.email = email;
+        this.password = password;
+        this.role = Role.valueOf(role);
+    }
+
     public String encoderPassword(String password){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
